@@ -1,0 +1,25 @@
+<div class="raw">
+  <div class="col-md-6">
+    <ul class="list-group mt-5">
+      <li
+        *ngFor="let mobile of shoppingList; let i = index"
+        class="list-group-item"
+      >
+        <div class="shopping-list-item p-3">
+          <div class="text">
+            <h4>
+              {{ shoppingList[i].Name }}
+            </h4>
+            <p>
+              {{ shoppingList[i].Processor.Name }}
+              {{ shoppingList[i].Processor.Type }}
+            </p>
+          </div>
+          <div class="img">
+            <img src="{{ shoppingList[i].Photo }}" alt="" />
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<form class="row pt-5" #myForm="ngForm">
+  <div class="col-md-5">
+    <!-- Mobile Name -->
+    <div class="form-group" #ff>
+      <label for="Mobilename">Mobile Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="Mobilename"
+        required
+        name="name"
+        ngModel
+      />
+    </div>
+    <!-- Processor Name -->
+    <div class="form-group mt-4">
+      <label for="Processor">Processor</label>
+      <input
+        type="text"
+        class="form-control"
+        id="Processor"
+        required
+        name="processorName"
+        ngModel
+      />
+    </div>
+    <div class="form-group mt-4">
+      <label>Ram Size</label>
+      <select class="form-select" name="RAM" required ngModel>
+        <option selected>Select Ram Size</option>
+        <option value="2 Gb">2 Gb</option>
+        <option value="4 Gb">4 Gb</option>
+        <option value="6 Gb">6 Gb</option>
+        <option value="8 Gb">8 Gb</option>
+        <option value="12 Gb">12 Gb</option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="form-group mt-4 col-6">
+        <label>Select Processor Type</label>
+        <select class="form-select" name="processorType" required ngModel>
+          <option selected>Select Processor Type</option>
+          <option value="U">U</option>
+          <option value="H">H</option>
+        </select>
+      </div>
+      <div class="form-group mt-4 col-6">
+        <label>Cash Size</label>
+        <select class="form-select" name="cashSize" required ngModel>
+          <option selected>Select Ram Size</option>
+          <option value="2 Mb">2 Mb</option>
+          <option value="4 Mb">4 Mb</option>
+          <option value="6 Mb">6 Mb</option>
+          <option value="8 Mb">8 Mb</option>
+          <option value="12 Mb">12 Mb</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group mt-4">
+      <label>Image Url</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        name="Photo"
+        ngModel
+        #photo
+      />
+    </div>
+  </div>
+  <div class="col-md-4 ms-5" *ngIf="photo.value">
+    <img [src]="photo.value" alt="Mobile Image !" />
+  </div>
+  <div class="col-8 mt-4" *ngIf="!isEditMode">
+    <input
+      [disabled]="!myForm.valid"
+      type="button"
+      value="Add New Phone"
+      class="btn btn-warning px-5"
+      (click)="OnSubmit(myForm)"
+    />
+  </div>
+  <div class="col-8 mt-4" *ngIf="isEditMode">
+    <input
+      [disabled]="!myForm.valid"
+      type="button"
+      value="Update This Phone"
+      class="btn btn-success px-5"
+      (click)="OnUpdate(myForm)"
+    />
+  </div>
+</form>

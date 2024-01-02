@@ -1,0 +1,28 @@
+<div class="mobile-card">
+  <div class="card-img">
+    <img src="{{ Mobile.Photo }}" alt="{{ Mobile.Name }}" />
+  </div>
+  <div class="card-text">
+    <h5>{{ Mobile.Name }}</h5>
+    <div class="Specfication">
+      <span>{{ Mobile.Processor.Name }}</span> <br />
+      <span>{{ Mobile.Processor.Type }}</span> -
+      <span>{{ Mobile.Processor.CASH }} Cash</span> -
+      <span>{{ Mobile.RAM }}</span>
+    </div>
+  </div>
+  <div class="card-control" *ngIf="!startEditing">
+    <button (click)="AddToShoppingCart()" class="btn btn-warning">
+      Add To Shopping Cart
+    </button>
+  </div>
+  <div class="card-control" *ngIf="startEditing">
+    <a
+      [routerLink]="['/edit', MobileIndex]"
+      [queryParams]="{ editMode: 1 }"
+      class="btn btn-success"
+    >
+      Edit Mobile Information
+    </a>
+  </div>
+</div>

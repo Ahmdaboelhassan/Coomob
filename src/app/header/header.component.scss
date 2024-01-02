@@ -1,0 +1,23 @@
+$activeColor: #ffc107;
+nav {
+  background-color: #eee;
+}
+nav a:hover {
+  transition: all 0.2s;
+  color: $activeColor !important;
+}
+.ul-control {
+  display: flex;
+  min-width: 185px;
+  justify-content: space-between;
+  align-items: center;
+  li {
+    color: #ffc107;
+    font-weight: bold;
+    padding-left: 20px;
+    cursor: pointer;
+  }
+}
+.active-link {
+  color: $activeColor !important;
+}

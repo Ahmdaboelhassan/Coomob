@@ -1,0 +1,7 @@
+<div class="container">
+  <app-mobile
+    *ngFor="let mobile of HomeMobileList; let i = index"
+    [Mobile]="mobile"
+    [MobileIndex]="i"
+  ></app-mobile>
+</div>
